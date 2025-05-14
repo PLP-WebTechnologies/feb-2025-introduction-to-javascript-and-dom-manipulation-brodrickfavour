@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Manipulation Demo</title>
+    <style>
+      #message {
+        font-size: 20px;
+        color: blue;
+      }
+
+      .highlight {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="message">Hello, World!</h1>
+
+    <!-- Buttons to trigger actions -->
+    <button onclick="changeText()">Change Text</button>
+    <button onclick="changeStyle()">Change Style</button>
+    <button onclick="addElement()">Add Element</button>
+    <button onclick="removeElement()">Remove Element</button>
+
+    <!-- Container to add/remove elements -->
+    <div id="container"></div>
+
+    <script>
+      // Change the text content
+      function changeText() {
+        document.getElementById("message").textContent =
+          "Text has been changed!";
+      }
+
+      // Modify CSS style dynamically
+      function changeStyle() {
+        document.getElementById("message").classList.toggle("highlight");
+      }
+
+      // Add a new element
+      function addElement() {
+        const newPara = document.createElement("p");
+        newPara.textContent = "This is a new paragraph.";
+        newPara.id = "newPara";
+        document.getElementById("container").appendChild(newPara);
+      }
+
+      // Remove the element
+      function removeElement() {
+        const para = document.getElementById("newPara");
+        if (para) {
+          para.remove();
+        } else {
+          alert("Element already removed.");
+        }
+      }
+    </script>
+  </body>
+</html>
